@@ -1,4 +1,5 @@
 # Don't commit dist folder
+dist/
 
 # Logs
 logs
