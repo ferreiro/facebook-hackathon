@@ -2,6 +2,10 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+
+const DESTINATION_PATH = path.join(__dirname, '../server/dist');
 
 module.exports = {
     entry: {
@@ -9,12 +13,22 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.join(__dirname, '../server/dist'),
+        path: DESTINATION_PATH,
     },
     target: 'node',
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
+        new CopyWebpackPlugin([{
+          from: './images/**/**',
+          to: DESTINATION_PATH
+        }]),
+        new ImageminPlugin()
+    ],
     module: {
         rules: [
             {
@@ -37,9 +51,4 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        })
-    ]
 }

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "server": "nodemon --exec babel-node ./bin/www",
+    "server": "nodemon -e js,pug,html --exec babel-node ./bin/www",
     "start": "yarn run server"
   },
   "engines": {

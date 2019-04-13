@@ -2,6 +2,11 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/client.css')
   body
+    #root
+
     block content
+      p hola
+    block scripts
+      <script src="/client.bundle.js"></script>
