@@ -18,7 +18,7 @@ class Calendar extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            id: 4
+            id: null
         }
     }
 
@@ -121,25 +121,30 @@ class Calendar extends PureComponent {
             <div className="calendar">
                 {this.state.id && activeAd && (
                     <div className="details">
-                        <h1>Ad for {activeAd.title}...</h1>
+                        <div className="detail__wrapper">
+                            <h1>Ad for {activeAd.title}...</h1>
 
-                        <div className="details__wrapper">
-                            <div className="left">
-                                <p>How is your campaign perfoming?</p>
-                                <ul>
-                                    {activeAd.insights && activeAd.insights.map((key, insight) => (
-                                        <li class="bx--tile tile-pos" key={key}>
-                                            <p>{insight.perfomance}</p>
+                            <div className="details__wrapper">
+                                <div className="left">
+                                    <h2>How is your campaign perfoming?</h2>
+                                    <ul>
+                                        <li class="bx--tile tile-pos">
+                                            <p>-5% conversion</p>
                                         </li>
-                                    ))}
-                                </ul>
-                            </div>
+                                        <li class="bx--tile tile-pos">
+                                            <p>3s users leave your video</p>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div className="right">
-                                <h2>What to improve?</h2>
-                                <TextInput />
-                                <p>Suggested refresh content:</p>
-                                <img src="https://media.giphy.com/media/JloaMOt30dYBp4FfXs/source.gif" />
+                                <div className="right">
+                                    <h2>What to improve?</h2>
+                                    <p style={{marginBottom: '2em'}}>Prueba nuestros churros y obtén un 10% de descuento en las próximas compras. ¡Anímate!</p>
+                                    <h2 style={{marginBottom: '1em'}}>Suggested refresh content:</h2>
+                                    <img src="https://media.giphy.com/media/jt9t3N1R87t49bmwa6/giphy.gif" />
+                                    <img src="https://media.giphy.com/media/Zb0rzqGmhtCikou2Ku/giphy.gif" />
+                                    <img src="https://media.giphy.com/media/LQzxyls7LHzcnXoeOs/giphy.gif" />
+                                </div>
                             </div>
                         </div>
                     </div>
