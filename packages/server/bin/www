@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../client');
+var app = require('../index');
 var debug = require('debug')('hackathon:server');
 var http = require('http');
 
