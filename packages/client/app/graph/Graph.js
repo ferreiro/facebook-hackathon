@@ -3,6 +3,8 @@ import { AreaChart, Area, linearGradient, LineChart, CartesianGrid, XAxis, YAxis
 import { ClickableTile } from 'carbon-components-react';
 import axios from 'axios';
 
+let variable = 'Success';
+
 const Number = ({legend}) => {
   const number = ((Math.random()*2 -1) * 18).toFixed(2);
   let parsedNum, className;
@@ -19,7 +21,10 @@ const Number = ({legend}) => {
   return (
     <div className="bx--col">
       <ClickableTile
-        onClick={() => console.log(legend)}
+        onClick={() => {
+          console.log(legend);
+          variable = legend;
+        }}
         className={className}
       >
         <p>
@@ -36,45 +41,14 @@ const Number = ({legend}) => {
 const demoData = [
   {
     "date": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400
-  },
-  {
+    "Success": 4000,
+    "Spend": 2400,
+    "CTR": 2400
+  },{
     "date": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210
-  },
-  {
-    "date": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290
-  },
-  {
-    "date": "Page D",
-    "uv": 2780,
-    "pv": 3908,
-    "amt": 2000
-  },
-  {
-    "date": "Page E",
-    "uv": 1890,
-    "pv": 4800,
-    "amt": 2181
-  },
-  {
-    "date": "Page F",
-    "uv": 2390,
-    "pv": 3800,
-    "amt": 2500
-  },
-  {
-    "date": "Page G",
-    "uv": 3490,
-    "pv": 4300,
-    "amt": 2100
+    "Success": 3000,
+    "Spend": 2000,
+    "CTR": 1800
   }
 ];
 
@@ -96,19 +70,20 @@ const LineGraph = ({}) => {
 }
 
 const AreaGraph = ({}) => {
+  console.log(demoData, variable);
   return (
     <div className="c-graph">
-      <AreaChart width={730} height={250} data={demoData}
+      <AreaChart width={800} height={300} data={demoData}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={variable} x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
             <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
           </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+          {/* <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
             <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-          </linearGradient>
+          </linearGradient> */}
         </defs>
         <XAxis dataKey="date" />
         <YAxis />
