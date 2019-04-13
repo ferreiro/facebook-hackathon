@@ -131,7 +131,7 @@ class Calendar extends PureComponent {
                                         <li class="bx--tile tile-pos">
                                             <p>-5% conversion</p>
                                         </li>
-                                        <li class="bx--tile tile-pos">
+                                        <li class="bx--tile bx--tile--clickable tile-neg">
                                             <p>3s users leave your video</p>
                                         </li>
                                     </ul>
