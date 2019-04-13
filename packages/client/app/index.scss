@@ -12,7 +12,7 @@ body {
 .c-graph {
     position: relative;
     width: 100%;
-    min-height: 600px;
+    min-height: 400px;
     display: flex;
     align-items: center;
 
@@ -27,4 +27,32 @@ body {
             right: 0;
         }
       }
+}
+
+.bx--tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &.tile-neg {
+        font-size: rem(20px);
+        font-weight: 800;
+        color: $support-01;
+    }
+
+    &.tile-pos {
+        font-size: rem(18px);
+        font-weight: 800;
+        color: $support-02;
+    }
+
+    .tile-legend {
+        font-size: rem(12px);
+    }
+
+    p {
+        display: inline-block;
+        margin-top: rem(4px);
+    }
 }
