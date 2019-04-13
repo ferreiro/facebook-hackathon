@@ -1,38 +1,36 @@
 import React, { Component } from 'react';
 import { AreaChart, Area, linearGradient, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
-import { Button, Tile } from 'carbon-components-react';
+import { ClickableTile } from 'carbon-components-react';
 import axios from 'axios';
 
 const Number = ({legend}) => {
   const number = ((Math.random()*2 -1) * 18).toFixed(2);
+  let parsedNum, className;
+
   if (number > 0) {
-    return (
-      <div className="bx--col">
-        <Tile className='tile-pos'>
-          <p>
-            {`+${number}%`}
-          </p>
-          <p className="tile-legend">
-            {legend}
-          </p>
-        </Tile>
-      </div>
-    );
+    parsedNum = `+${number}%`;
+    className = 'tile-pos';
   }
   else {
-    return (
-      <div className="bx--col">
-        <Tile className='tile-neg'>
+    parsedNum = `${number}%`;
+    className = 'tile-neg'
+  }
+
+  return (
+    <div className="bx--col">
+      <ClickableTile
+        onClick={() => console.log(legend)}
+        className={className}
+      >
         <p>
-          {`${number}%`}
+          {parsedNum}
         </p>
         <p className="tile-legend">
           {legend}
         </p>
-        </Tile>
-      </div>
-    );
-  }
+      </ClickableTile>
+    </div>
+  );
 }
 
 const demoData = [
@@ -126,23 +124,21 @@ const AreaGraph = ({}) => {
 class Graph extends Component {
   componentDidMount() {
     const id = 2227226;
-    const url = `localhost:5000/get_ad_stats?ad_id=${id}`;
+    const url = `http://localhost:5000/get_ad_stats?ad_id=${id}`;
 
     axios.get(url)
-    .then(function (response) {
-      // handle success
-      console.log(typeof response);
-      console.log(response);
-      if(response.length) response.map(d => ({
-        'date': new Date(d[0]),
-        'Success': d[1]/d[2],
-        'Spend': d[3],
-        'CTR': d[4]
-      }));
+    .then((response) => {
+      if(response.data && response.data.length) {
+        this.data = response.data.map(d => ({
+            'date': new Date(d[0]),
+            'Success': d[1]/d[2],
+            'Spend': d[3],
+            'CTR': d[4]
+        }));
+      }
     })
     .catch(function (error) {
-      // handle error
-      console.log(error);
+      console.error(error);
     });
   }
 
