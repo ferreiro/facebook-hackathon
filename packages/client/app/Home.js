@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 
 import Header from './header/Header';
-import Graph from './Graph';
+import Graph from './graph/Graph';
 
 class Home extends PureComponent {
     render() {
