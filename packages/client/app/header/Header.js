@@ -5,7 +5,7 @@ import './header.scss'
 const Header = ({}) =>  (
     <div className="header">
         <div className="logo">
-            Facebook Lol
+            Adglow
         </div>
     </div>
 )
