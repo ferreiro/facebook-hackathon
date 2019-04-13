@@ -5,7 +5,7 @@ import './header.scss'
 const Header = ({}) =>  (
     <div className="header">
         <div className="logo">
-            Adglow
+            <center><img src="http://localhost:9000/images/logo.jpg" width="150px" /></center>
         </div>
     </div>
 )
