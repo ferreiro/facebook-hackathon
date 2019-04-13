@@ -1,6 +1,17 @@
+@import '~carbon-components/scss/globals/scss/styles.scss';
+
 $themeColor-Light: #f3e2c7;
 $themeColor-Dark:#b68d4c;
 
 body {
     color: red;
+}
+
+.c-graph {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+
+    background: #1e1e1e;
 }
