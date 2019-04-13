@@ -145,9 +145,9 @@ class Graph extends Component {
               </div>
             </div>
             <div className="bx--row">
-              <Number legend='Clicks'/>
-              <Number legend='Engagement'/>
-              <Number legend='Clients'/>
+              <Number legend='Success'/>
+              <Number legend='Spend'/>
+              <Number legend='CTR'/>
             </div>
           </div>
         </div>
