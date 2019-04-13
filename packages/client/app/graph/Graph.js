@@ -3,9 +3,7 @@ import { AreaChart, Area, linearGradient, LineChart, CartesianGrid, XAxis, YAxis
 import { ClickableTile } from 'carbon-components-react';
 import axios from 'axios';
 
-let variable = 'Success';
-
-const Number = ({legend}) => {
+const Number = ({legend, setVariable }) => {
   const number = ((Math.random()*2 -1) * 18).toFixed(2);
   let parsedNum, className;
 
@@ -22,7 +20,7 @@ const Number = ({legend}) => {
     <div className="bx--col">
       <ClickableTile
         onClick={() => {
-          variable = legend;
+          setVariable(legend);
         }}
         className={className}
       >
@@ -73,7 +71,7 @@ const LineGraph = ({}) => {
   );
 }
 
-const AreaGraph = ({data}) => {
+const AreaGraph = ({data, variable}) => {
   // console.log(demoData, variable);
   return (
     <div className="c-graph">
@@ -104,12 +102,17 @@ class Graph extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: []
+      data: [],
+      variable: 'Success'
     };
   }
 
   updateData(data) {
     this.setState({ data: data });
+  }
+
+  setVariable(variable) {
+    this.setState({ variable: variable })
   }
 
   componentDidMount() {
@@ -141,13 +144,13 @@ class Graph extends Component {
           <div className="bx--tile-container">
             <div className="bx--row">
               <div className="bx--col bx--col-md-12">
-                <AreaGraph data={this.state.data}/>
+                <AreaGraph data={this.state.data} variable={this.state.variable}/>
               </div>
             </div>
             <div className="bx--row">
-              <Number legend='Success'/>
-              <Number legend='Spend'/>
-              <Number legend='CTR'/>
+              <Number setVariable={(variable) => this.setVariable(variable)} legend='Success'/>
+              <Number setVariable={(variable) => this.setVariable(variable)} legend='Spend'/>
+              <Number setVariable={(variable) => this.setVariable(variable)} legend='CTR'/>
             </div>
           </div>
         </div>
