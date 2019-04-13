@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "",
+    "dev": "concurrently \"yarn backend:server\" \"yarn frontend:server:dev\"",
+    "frontend:server:dev": "yarn workspace client start:dev",
+    "backend:server": "yarn workspace server start",
     "build": "yarn workspace client build",
-    "server": "yarn workspace server start",
-    "start": "yarn build && yarn server"
+    "start": "yarn build && yarn backend:server"
   },
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "concurrently": "4.1.0"
+  },
   "devDependencies": {}
 }

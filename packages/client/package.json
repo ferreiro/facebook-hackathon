@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": ""
+    "build:dev": "webpack --mode development",
+    "start:dev": "webpack-dev-server --mode development",
+    "start": "yarn build"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -30,6 +31,7 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "webpack": "4.30.0",
-    "webpack-cli": "3.3.0"
+    "webpack-cli": "3.3.0",
+    "webpack-dev-server": "3.3.1"
   }
 }

@@ -15,7 +15,13 @@ module.exports = {
         filename: '[name].bundle.js',
         path: DESTINATION_PATH,
     },
-    target: 'node',
+    // This is required to make the hot reload work for the web...
+    target: 'web',
+    devServer: {
+        contentBase: DESTINATION_PATH,
+        compress: true,
+        port: 9000
+    },
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },

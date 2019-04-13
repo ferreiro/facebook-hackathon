@@ -2,11 +2,11 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/client.css')
+    link(rel='stylesheet', href= staticAssetsPath + '/client.css')
   body
-    #root
+
+    #app
 
     block content
-      p hola
     block scripts
-      <script src="/client.bundle.js"></script>
+      script(src= staticAssetsPath + '/client.bundle.js')
