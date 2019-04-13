@@ -1,0 +1,72 @@
+.calendar {
+    margin: 5em;
+
+
+    &__wrapper {
+        margin: 0 auto;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+        align-content: flex-start;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        border-top: 1px solid #dadce0;
+        border-right: 1px solid #dadce0;
+    }
+
+    &__card {
+        height: 200px;
+        width: 14.28%;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        -webkit-align-self: auto;
+        -ms-flex-item-align: auto;
+        align-self: auto;
+        border: 0.5px solid #dadce0;
+        border-right: 0;
+        border-top: 0;
+        overflow: hidden;
+        position: relative;
+
+        &:hover {
+            background: #fbfbfb;
+        }
+
+        &--last {
+            width: 14.35%;
+            border-right: 1px solid #dadce0;
+        }
+
+        
+        &__wrapper {
+            height: 130px;
+            margin: 1em;
+            display: flex;
+            position: relative;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        &__header {
+            width: 100%;
+            background: #f4f4f4;
+            padding: 1em;
+            color: #000;
+        }
+    }
+}

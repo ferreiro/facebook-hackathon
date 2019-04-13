@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
-import { Button } from 'carbon-components-react';
 
 
 function Graph() {
@@ -63,7 +62,6 @@ function Graph() {
         <Line type="monotone" dataKey="pv" stroke="#8884d8" />
         <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
       </LineChart>
-      <Button>Hello React!</Button>
     </div>
   );
 }
