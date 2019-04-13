@@ -14,6 +14,17 @@ class Calendar extends PureComponent {
                 title: 'My super ad',
                 photo: 'https://media.giphy.com/media/koUtwnvA3TY7C/200.gif',
                 budget: '3000',
+                warning: true,
+                insights: [
+                    {
+                        perfomance: '-5%',
+                        text: 'Worst than your competitors'
+                    }
+                ],
+                suggestions: [
+                    'Change the title',
+                    'Upload new picture',
+                ]
             },
             4: {
                 title: 'My super ad',
@@ -49,9 +60,13 @@ class Calendar extends PureComponent {
                                 <div className="calendar__card__header">
                                     <span>{key}</span>
                                 </div>
+
+                                {data && data.warning && (
+                                    <span className="calendar__warning"></span>
+                                )}
+
                                 <div
                                     className='calendar__card__wrapper'
-                                    // style={{backgroundImage: }}
                                 >
                                     {data && (
                                         <img src={data.photo} alt="my data" width="100%" />
