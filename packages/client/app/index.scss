@@ -1,17 +1,26 @@
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/theme-maps';
+$carbon--theme: $carbon--theme--g100;
+
 @import '~carbon-components/scss/globals/scss/styles.scss';
 
-$themeColor-Light: #f3e2c7;
-$themeColor-Dark:#b68d4c;
+$screen-m: 40rem;
 
 body {
-    color: red;
+    background: $ui-background;
 }
 
 .c-graph {
+    position: relative;
     width: 100%;
     min-height: 600px;
     display: flex;
     align-items: center;
 
-    background: #1e1e1e;
+    @media screen and (min-width: $screen-m) {
+        .btn--new {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+      }
 }
