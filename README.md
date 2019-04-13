@@ -2,6 +2,8 @@
 
 Getting ready for a Hackathon at Facebook Offices in Madrid!!
 
+<img src="https://cdn-images-1.medium.com/max/1840/1*j8DELPVuI_w8045sxmHQsA.png" alt="" height="120px" />
+
 ## How to install and develop locally?
 
 1. Clone this repo locally: `$ git clone https://github.com/ferreiro/facebook-hackathon.git`
