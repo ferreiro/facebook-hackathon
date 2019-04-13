@@ -18,19 +18,22 @@ const Number = ({legend, setVariable }) => {
 
   return (
     <div className="bx--col">
-      <ClickableTile
-        onClick={() => {
-          setVariable(legend);
+      <div
+          onClick={() => {
+            setVariable(legend);
         }}
-        className={className}
       >
-        <p>
-          {parsedNum}
-        </p>
-        <p className="tile-legend">
-          {legend}
-        </p>
-      </ClickableTile>
+        <ClickableTile
+            className={className}
+        >
+          <p>
+            {parsedNum}
+          </p>
+          <p className="tile-legend">
+            {legend}
+          </p>
+        </ClickableTile>
+      </div>
     </div>
   );
 }
