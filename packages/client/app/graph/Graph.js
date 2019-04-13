@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AreaChart, Area, linearGradient, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
 import { Button, Tile } from 'carbon-components-react';
+import axios from 'axios';
 
 const Number = ({legend}) => {
   const number = ((Math.random()*2 -1) * 18).toFixed(2);
@@ -126,14 +127,22 @@ class Graph extends Component {
   componentDidMount() {
     const id = 2227226;
     const url = `localhost:5000/get_ad_stats?ad_id=${id}`;
-    fetch(url).then(r => JSON.parse(r)).then(data => {
-      console.log(data);
-      data.map(d => ({
+
+    axios.get(url)
+    .then(function (response) {
+      // handle success
+      console.log(typeof response);
+      console.log(response);
+      if(response.length) response.map(d => ({
         'date': new Date(d[0]),
         'Success': d[1]/d[2],
         'Spend': d[3],
         'CTR': d[4]
       }));
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
     });
   }
 
