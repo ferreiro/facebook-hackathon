@@ -22,7 +22,6 @@ const Number = ({legend}) => {
     <div className="bx--col">
       <ClickableTile
         onClick={() => {
-          console.log(legend);
           variable = legend;
         }}
         className={className}
@@ -49,6 +48,11 @@ const demoData = [
     "Success": 3000,
     "Spend": 2000,
     "CTR": 1800
+  },{
+    "date": "Page C",
+    "Success": 5000,
+    "Spend": 2000,
+    "CTR": 1800
   }
 ];
 
@@ -69,21 +73,21 @@ const LineGraph = ({}) => {
   );
 }
 
-const AreaGraph = ({}) => {
-  console.log(demoData, variable);
+const AreaGraph = ({data}) => {
+  // console.log(demoData, variable);
   return (
     <div className="c-graph">
-      <AreaChart width={800} height={300} data={demoData}
+      <AreaChart width={800} height={300} data={data}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>
           <linearGradient id={variable} x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
             <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
           </linearGradient>
-          {/* <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id={variable} x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
             <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-          </linearGradient> */}
+          </linearGradient>
         </defs>
         <XAxis dataKey="date" />
         <YAxis />
@@ -97,6 +101,17 @@ const AreaGraph = ({}) => {
 }
 
 class Graph extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: []
+    };
+  }
+
+  updateData(data) {
+    this.setState({ data: data });
+  }
+
   componentDidMount() {
     const id = 2227226;
     const url = `http://localhost:5000/get_ad_stats?ad_id=${id}`;
@@ -104,16 +119,19 @@ class Graph extends Component {
     axios.get(url)
     .then((response) => {
       if(response.data && response.data.length) {
-        this.data = response.data.map(d => ({
+        const parsedData = response.data.map(d => ({
             'date': new Date(d[0]),
             'Success': d[1]/d[2],
             'Spend': d[3],
             'CTR': d[4]
-        }));
+          }));
+        this.updateData(parsedData);
       }
     })
-    .catch(function (error) {
-      console.error(error);
+    .catch((error) => {
+      console.warn(error);
+      console.log(this);
+      this.updateData(demoData);
     });
   }
 
@@ -123,7 +141,7 @@ class Graph extends Component {
           <div className="bx--tile-container">
             <div className="bx--row">
               <div className="bx--col bx--col-md-12">
-                <AreaGraph/>
+                <AreaGraph data={this.state.data}/>
               </div>
             </div>
             <div className="bx--row">
