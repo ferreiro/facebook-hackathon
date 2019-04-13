@@ -16,6 +16,10 @@ body {
     display: flex;
     align-items: center;
 
+    .recharts-wrapper {
+        margin: auto;
+    }
+
     @media screen and (min-width: $screen-m) {
         .btn--new {
             position: absolute;

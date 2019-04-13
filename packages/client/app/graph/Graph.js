@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
 import { Button, Tile } from 'carbon-components-react';
 
+const Number = ({}) => (
+  <div class="bx--col">
+    <Tile>+{Math.random()*18}%</Tile>
+  </div>
+);
+
 const LineGraph = ({}) => {
   const data = [
     {
@@ -65,28 +71,23 @@ const LineGraph = ({}) => {
 }
 
 class Graph extends Component {
+  componentDidMount() {
+    // fetch('/get_tags_stats')
+  }
+
   render() {
       return (
         <div className="bx--grid">
           <div className="bx--tile-container">
             <div className="bx--row">
               <div className="bx--col bx--col-md-12">
-                <LineGraph />
+                <LineGraph/>
               </div>
             </div>
             <div class="bx--row">
-              <div class="bx--col bx--col-md-3 bx--col-sm-3">
-                <Tile>Default tile</Tile>
-              </div>
-              <div class="bx--col bx--col-md-3 bx--col-sm-3">
-                <Tile>Default tile</Tile>
-              </div>
-              <div class="bx--col bx--col-md-3 bx--col-sm-3">
-                <Tile>Default tile</Tile>
-              </div>
-              <div class="bx--col bx--col-md-3 bx--col-sm-3">
-                <Tile>Default tile</Tile>
-              </div>
+              <Number />
+              <Number />
+              <Number />
             </div>
           </div>
         </div>
