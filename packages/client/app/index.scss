@@ -9,6 +9,10 @@ body {
     background: $ui-background;
 }
 
+h1 {
+    font-size: 34px;
+}
+
 .c-graph {
     position: relative;
     width: 100%;
@@ -56,3 +60,67 @@ body {
         margin-top: rem(4px);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// https://codepen.io/doncoco/pen/WvMgwz
+
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: left;
+    background: #a50000;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-animation: r5 1s 0s ease-out infinite;
+    -moz-animation: r5 1s 0s ease-out infinite;
+    animation: r5 1s 0s ease-out infinite;
+  }
+  
+  @-webkit-keyframes r5 {
+    0% {
+      box-shadow: 0 0 8px 6px rgba(93,204,231, .5), 0 0 0px 0px transparent, 0 0 0px 0px rgba(93,204,231, .7);
+    }
+    10% {
+      transform:scale(1,1);
+      box-shadow: 0 0 8px 6px rgba(93,204,231, .5), 0 0 12px 10px transparent, 0 0 12px 14px rgba(93,204,231, .7);
+    }
+    100% {
+      box-shadow: 0 0 8px 6px rgba(26, 140, 255, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(26, 140, 255, 0);
+    }
+  }
+  @-moz-keyframes r5 {
+    0% {
+      box-shadow: 0 0 8px 6px rgb(93,204,231), 0 0 0px 0px transparent, 0 0 0px 0px rgb(93,204,231);
+    }
+    10% {
+      box-shadow: 0 0 8px 6px rgb(93,204,231), 0 0 12px 10px transparent, 0 0 12px 14px rgb(93,204,231);
+    }
+    100% {
+      box-shadow: 0 0 8px 6px rgba(26, 140, 255, 0), 0 0 0px 40px transparent, 0 0 0px 40px rgba(26, 140, 255, 0);
+    }
+  }
+  @keyframes r5 {
+    0% {
+        box-shadow: 0 0 8px 6px #e75d5d, 0 0 0px 0px transparent, 0 0 0px 0px #e75d5d;
+    }
+    10% {
+        box-shadow: 0 0 8px 6px #e75d5d, 0 0 12px 10px transparent, 0 0 12px 14px #e75d5d;
+    }
+    100% {
+        box-shadow: 0 0 8px 6px #e75d5d, 0 0 12px 10px transparent, 0 0 12px 14px #e75d5d;
+    }
+  }

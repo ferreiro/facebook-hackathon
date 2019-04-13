@@ -12,7 +12,7 @@ class Calendar extends PureComponent {
         const activeAds = {
             0: {
                 title: 'My super ad',
-                photo: 'https://media.giphy.com/media/koUtwnvA3TY7C/200.gif',
+                photo: 'http://localhost:9000/images/churros_1.jpg',
                 budget: '3000',
                 warning: true,
                 insights: [
@@ -28,17 +28,53 @@ class Calendar extends PureComponent {
             },
             4: {
                 title: 'My super ad',
-                photo: 'https://media.giphy.com/media/koUtwnvA3TY7C/200.gif',
+                photo: 'http://localhost:9000/images/churros.jpg',
                 budget: '3000',
             },
             6: {
                 title: 'My super ad',
-                photo: 'https://media.giphy.com/media/koUtwnvA3TY7C/200.gif',
-                budget: '3000',
+                photo: 'http://localhost:9000/images/churros_3.jpg',
+                budget: '3000'
             },
             10: {
                 title: 'My super ad',
-                photo: 'https://media.giphy.com/media/koUtwnvA3TY7C/200.gif',
+                photo: 'http://localhost:9000/images/churros_4.jpg',
+                budget: '3000',
+                warning: true,
+                insights: [
+                    {
+                        perfomance: '-5%',
+                        text: 'Worst than your competitors'
+                    }
+                ],
+                suggestions: [
+                    'Change the title',
+                    'Upload new picture',
+                ]
+            },
+            9: {
+                title: 'My super ad',
+                photo: 'http://localhost:9000/images/churros_5.jpg',
+                budget: '3000',
+            },
+            13: {
+                title: 'My super ad',
+                photo: 'http://localhost:9000/images/churros_6.jpg',
+                budget: '3000',
+            },
+            22: {
+                title: 'My super ad',
+                photo: 'http://localhost:9000/images/churros_7.jpg',
+                budget: '3000',
+            },
+            18: {
+                title: 'My super ad',
+                photo: 'http://localhost:9000/images/churros_8.jpg',
+                budget: '3000',
+            },
+            24: {
+                title: 'My super ad',
+                photo: 'http://localhost:9000/images/churros_9.jpg',
                 budget: '3000',
             }
         };
@@ -47,8 +83,11 @@ class Calendar extends PureComponent {
 
         return (
             <div className="calendar">
-                <h1>Your campaign agenda</h1>
-                <Button className="btn--new">Hello React!</Button>
+
+                <div className="calendar__title">
+                    <h1>Your campaign agenda</h1>
+                    <Button className="btn--new">Create new add</Button>
+                </div>
 
                 <div className="calendar__wrapper">
                     {daysList.map((key) => {
@@ -62,7 +101,7 @@ class Calendar extends PureComponent {
                                 </div>
 
                                 {data && data.warning && (
-                                    <span className="calendar__warning"></span>
+                                    <div class='calendar__warning circle'></div>
                                 )}
 
                                 <div
