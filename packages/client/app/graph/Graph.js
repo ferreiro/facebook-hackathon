@@ -2,11 +2,37 @@ import React, { Component } from 'react';
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line } from 'recharts';
 import { Button, Tile } from 'carbon-components-react';
 
-const Number = ({}) => (
-  <div class="bx--col">
-    <Tile>+{Math.random()*18}%</Tile>
-  </div>
-);
+const Number = ({legend}) => {
+  const number = ((Math.random()*2 -1) * 18).toFixed(2);
+  if (number > 0) {
+    return (
+      <div className="bx--col">
+        <Tile className='tile-pos'>
+          <p>
+            {`+${number}%`}
+          </p>
+          <p className="tile-legend">
+            {legend}
+          </p>
+        </Tile>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="bx--col">
+        <Tile className='tile-neg'>
+        <p>
+          {`${number}%`}
+        </p>
+        <p className="tile-legend">
+          {legend}
+        </p>
+        </Tile>
+      </div>
+    );
+  }
+}
 
 const LineGraph = ({}) => {
   const data = [
@@ -72,7 +98,7 @@ const LineGraph = ({}) => {
 
 class Graph extends Component {
   componentDidMount() {
-    // fetch('/get_tags_stats')
+    // fetch('172.22.94.11:/get_tags_stats')
   }
 
   render() {
@@ -84,10 +110,10 @@ class Graph extends Component {
                 <LineGraph/>
               </div>
             </div>
-            <div class="bx--row">
-              <Number />
-              <Number />
-              <Number />
+            <div className="bx--row">
+              <Number legend='Clicks'/>
+              <Number legend='Engagement'/>
+              <Number legend='Clients'/>
             </div>
           </div>
         </div>
