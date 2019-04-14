@@ -1,8 +1,12 @@
-# facebook-hackathon
+# Facebook-hackathon (winners!)
 
 Getting ready for a Hackathon organized by Facebook and Adglow!
 
 We won the first price. Yay!
+
+<img src="./adglow.jpg" alt="" width="600px" />
+
+## Stack
 
 <img src="https://cdn-images-1.medium.com/max/1840/1*j8DELPVuI_w8045sxmHQsA.png" alt="" height="120px" />
 
